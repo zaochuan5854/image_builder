@@ -103,6 +103,7 @@ jobs:
           type=ref,event=branch
           type=sha,format=short,prefix=sha-
           type=raw,value=latest,enable={{is_default_branch}}
+          type=raw,value=${{ inputs.custom_tag }},enable=${{ inputs.custom_tag != '' }}
 
     - name: Build Docker image (dry run)
       uses: docker/build-push-action@v6
